@@ -7,3 +7,5 @@ Altere "replace:" para o IP do seu Zabbix Proxy ou Zabbix Server, dependendo do 
 
 Comando para executar o playbook:
 sudo ansible-playbook -i servidores-linux.ini playbook-ZabbixAgent.yml --ask-become-pass
+
+Para solicitar senha do sudo (--ask-become-pass)
