@@ -1,11 +1,15 @@
-# Estalação é configuração do Zabbix Agent
+## Instalação e Configuração do Zabbix Agent
 
-Altere "servidores-linux.ini" de acordo com os IPs dos Servidores a serem configurados.
+### Passos:
 
-Altere "replace:" para o IP do seu Zabbix Proxy ou Zabbix Server, dependendo do sua infraestrutura.
+1. **Edição do arquivo "servidores-linux.ini":**  
+   Altere este arquivo para incluir os IPs dos servidores que deseja configurar.
 
+2. **Configuração do endereço IP no arquivo:**  
+   Encontre a seção "replace:" e insira o IP do seu Zabbix Proxy ou Zabbix Server, dependendo da sua infraestrutura.
 
-Comando para executar o playbook:
+### Comando para executar o playbook:
+
+```bash
 sudo ansible-playbook -i servidores-linux.ini playbook-ZabbixAgent.yml --ask-become-pass
 
-Para solicitar senha do sudo (--ask-become-pass)
