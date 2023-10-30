@@ -1,0 +1,22 @@
+---
+- name: Instalar e configurar Zabbix Agent
+  hosts: servidores_linux
+  become: true
+
+  tasks:
+    - name: Atualizar pacotes e instalar Zabbix Agent
+      apt:
+        update_cache: yes
+        name: zabbix-agent
+        state: present
+
+    - name: Alterar configuração do Zabbix Agent
+      replace:
+        path: /etc/zabbix/zabbix_agentd.conf
+        regexp: 'Server=127\.0\.0\.1'
+        replace: 'Server=10.0.0.5'
+
+    - name: Reiniciar Zabbix Agent
+      service:
+        name: zabbix-agent
+        state: restarted
